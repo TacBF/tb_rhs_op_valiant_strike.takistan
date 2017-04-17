@@ -1,0 +1,37 @@
+uniforms[] = {
+
+	// UNIFORMS
+
+		{"U_IG_Guerilla3_1", {__ICE_gear_allRoles}},
+		{"U_IG_Guerilla3_2", {__ICE_gear_allRoles}},
+		{"U_IG_leader", {__ICE_gear_allRoles}},	
+		
+	// HELMETS
+
+		{"H_Shemag_khk", {__ICE_gear_allRoles}},
+		{"H_Shemag_tan", {__ICE_gear_allRoles}},
+		{"H_Shemag_olive", {__ICE_gear_allRoles}},
+		{"H_ShemagOpen_tan", {__ICE_gear_allRoles}},
+		
+		{"H_Bandanna_khk", {__ICE_gear_allRoles}},
+		{"H_Bandanna_cbr", {__ICE_gear_allRoles}},
+		{"H_Bandanna_sgg", {__ICE_gear_allRoles}},
+		{"H_Bandanna_gry", {__ICE_gear_allRoles}},
+		
+		{"H_Cap_oli", {__ICE_gear_allRoles}},
+		{"H_Cap_tan", {__ICE_gear_allRoles}},
+		{"H_Cap_blk", {__ICE_gear_allRoles}},
+		
+		{"rhs_zsh7a_mike", {__ICE_gear_Pilot}},
+
+	// VESTS
+		
+		{"V_HarnessOGL_gry", {__ICE_gear_allRoles}},
+		{"V_HarnessOGL_brn", {__ICE_gear_allRoles}},
+	
+		{"V_BandollierB_khk", {__ICE_gear_allRoles}},
+		{"V_BandollierB_cbr", {__ICE_gear_allRoles}},
+		{"V_BandollierB_rgr", {__ICE_gear_allRoles}},
+		{"V_BandollierB_blk", {__ICE_gear_allRoles}},
+		{"V_BandollierB_oli", {__ICE_gear_allRoles}}
+};

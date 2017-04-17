@@ -1,0 +1,13 @@
+#define TB_loadingScreen_imagePath "loadimage.jpg"
+
+onLoadName="Operation Valiant Strike";
+overviewPicture = "loadimage.jpg";
+author="Schadler.C";
+onLoadMission="Tactical Battlefield: Search and Destroy";
+
+#include "tb_description.sqh"
+#include "tb_settings.hpp"
+#include "tb_objectReplacements.hpp"
+#include "tb_magazineLimitations.hpp"
+#include "tb_supply.hpp"
+#include "tb_vehicleInit.hpp"

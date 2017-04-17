@@ -1,0 +1,32 @@
+uniforms[] = {
+
+	// UNIFORMS
+		
+		{"rhs_uniform_FROG01_m81", {__ICE_gear_allRoles}},
+		
+		{"U_B_GhillieSuit", {__ICE_gear_Sniper}},
+		{"U_B_FullGhillie_ard", {__ICE_gear_Sniper}},
+		{"U_B_FullGhillie_lsh", {__ICE_gear_Sniper}},
+		{"U_B_FullGhillie_sard", {__ICE_gear_Sniper}},
+		{"U_B_HeliPilotCoveralls", {__ICE_gear_Pilot}},
+		{"U_B_Wetsuit", {__ICE_gear_Diver}},
+		
+	// HELMETS
+
+		{"rhsusf_mich_bare_norotos", {__ICE_gear_allRoles}},
+		
+		{"rhsusf_mich_bare_norotos_headset", {__ICE_gear_SL}},
+		{"rhs_Booniehat_m81", {__ICE_gear_Sniper}},
+		{"rhsusf_cvc_green_helmet", {__ICE_gear_Crewman}},
+		{"rhsusf_hgu56p", {__ICE_gear_Pilot}},
+
+	// VESTS
+
+		{"V_PlateCarrier1_rgr", {__ICE_gear_Pilot}},
+		{"V_RebreatherB", {__ICE_gear_Diver}},
+		
+	// GOGGLES
+
+		{"rhs_googles_black", {__ICE_gear_allRoles}},
+		{"rhs_googles_clear", {__ICE_gear_allRoles}}
+};

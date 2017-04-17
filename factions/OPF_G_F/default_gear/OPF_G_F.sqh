@@ -1,0 +1,207 @@
+#include "\ice\ice_gear\kitDefines.sqh"
+
+private ["_result", "_role", "_side", "_faction",
+	"_weapons", "_attachments", "_magazines", "_commonOrdnance", 
+	"_uniform", "_vest", "_backpack", 
+	"_uniformItems", "_vestItems", "_backpackItems", 
+	"_assignedItems", "_helmet", "_glasses", "_nvGoggles", "_binoculars", "_nvGogglesForAll"];
+
+_role = _this select 0;
+
+// Default Gear
+
+	_uniform = ["U_IG_Guerilla3_1", "U_IG_Guerilla3_2", "U_IG_leader"] call BIS_fnc_selectRandom;
+	_helmet = ["H_Cap_oli", "H_Cap_tan", "H_Cap_blk", "H_Bandanna_khk", "H_Bandanna_cbr", "H_Bandanna_sgg", "H_Bandanna_gry", "H_Shemag_khk", "H_Shemag_tan", "H_Shemag_olive", "H_ShemagOpen_tan"] call BIS_fnc_selectRandom;
+	_vest = ["V_BandollierB_khk", "V_BandollierB_cbr", "V_BandollierB_rgr", "V_BandollierB_blk", "V_BandollierB_oli"] call BIS_fnc_selectRandom;
+	_glasses = "";
+	_backpack = "";
+
+	_weapons = [["rhs_weap_ak74m_folded", "rhs_weap_ak74m"] call BIS_fnc_selectRandom];
+	_attachments = [[], [], []];
+	_magazines = [["rhs_30Rnd_545x39_AK", 5]];
+
+	_uniformItems = [];
+	_vestItems = [];
+	_backpackItems = [];		
+	_nvGoggles = if (__isNight) then {"NVGoggles";} else {"";};
+	_binoculars = "Binocular";
+	_assignedItems = [
+		"ItemMap", 
+		"ItemRadio", 
+		"ItemCompass", 
+		"ItemWatch"
+	];
+	_commonOrdnance = [
+		["rhs_mag_rgd5", 2],
+		["SmokeShell", 2],
+		["ICE_FieldDressing", 5],
+		["ICE_Adrenaline", 2],
+		["ICE_Morphine", 2]
+	];
+
+switch (_role) do {
+
+	case __ICE_gear_Rifleman: {
+		
+	};
+		
+	case __ICE_gear_Grenadier: {
+	
+		_vest = ["V_HarnessOGL_gry", "V_HarnessOGL_brn"] call BIS_fnc_selectRandom;
+		
+		_weapons = ["rhs_weap_ak74m_gp25"];
+		_magazines = [["rhs_30Rnd_545x39_AK", 5], ["rhs_VOG25", 6], ["rhs_GRD40_White", 4]];		
+	};
+	
+	case __ICE_gear_MG: {
+	
+		_backpack = ["B_Carryall_cbr", "B_Carryall_khk", "B_Carryall_oli"] call BIS_fnc_selectRandom;
+		
+		_weapons = ["rhs_weap_pkm"];
+		_magazines = [["rhs_100Rnd_762x54mmR", 5]];
+	};
+
+	case __ICE_gear_Medic: {
+			
+		_commonOrdnance = [
+			["rhs_mag_rgd5", 2],
+			["SmokeShell", 8],
+			["ICE_FieldDressing", 20],
+			["ICE_Adrenaline", 20],
+			["ICE_Morphine", 10]
+		];
+	};
+		
+	case __ICE_gear_CombatEngineer: {
+	
+		_vest = ["V_HarnessO_brn", "V_HarnessO_gry"] call BIS_fnc_selectRandom;
+		_backpack = ["B_Carryall_cbr", "B_Carryall_khk", "B_Carryall_oli"] call BIS_fnc_selectRandom;
+		
+		_weapons = [["rhs_weap_ak74m_folded", "rhs_weap_M590_5RD"] call BIS_fnc_selectRandom];
+		_magazines = if (_weapons isEqualTo ["rhs_weap_ak74m_folded"]) then {[["rhs_30Rnd_545x39_AK", 5]];} else {[["rhsusf_5Rnd_00Buck", 5]]};
+		
+		_backpackItems = [["DemoCharge_Remote_Mag", 4], ["Toolkit", 1]];
+	};
+
+	case __ICE_gear_LightAT: {
+	
+		_backpack = ["B_Carryall_cbr", "B_Carryall_khk", "B_Carryall_oli"] call BIS_fnc_selectRandom;
+		
+		_weapons pushback "CUP_launch_RPG18";
+		_magazines pushback ["CUP_RPG18_M", 1];
+	};
+
+	case __ICE_gear_HeavyAT: {
+	
+		_backpack = ["B_Carryall_cbr", "B_Carryall_khk", "B_Carryall_oli"] call BIS_fnc_selectRandom;
+		
+		_weapons pushback "rhs_weap_rpg7";
+		_magazines pushback ["rhs_rpg7_PG7VL_mag", 3];
+		_attachments set [1, ["rhs_acc_pgo7v"]];
+	};
+
+	case __ICE_gear_AA: {
+	
+		_backpack = ["B_Carryall_cbr", "B_Carryall_khk", "B_Carryall_oli"] call BIS_fnc_selectRandom;
+		
+		_weapons pushback "CUP_launch_9K32Strela";
+		_magazines pushback ["CUP_Strela_2_M", 1];
+	};
+
+	case __ICE_gear_Marksman: {
+		
+		_weapons = ["rhs_weap_svds"];
+		_attachments = [["rhs_acc_pso1m2"], [], []];
+		_magazines = [["rhs_10Rnd_762x54mmR_7N1", 5]];
+	};
+
+	case __ICE_gear_Sniper: {
+	
+		_vest = ["V_BandollierB_khk", "V_BandollierB_cbr", "V_BandollierB_rgr", "V_BandollierB_blk", "V_BandollierB_oli"] call BIS_fnc_selectRandom;
+		
+		_weapons = ["rhs_weap_svdp_wd_npz"];
+		_attachments = [["optic_LRPS"], [], []];
+		_magazines = [["rhs_10Rnd_762x54mmR_7N1", 6]];
+		
+		_assignedItems pushback "ItemGPS";
+	};
+		
+	case __ICE_gear_SL: {
+	
+		_backpack = "TB_Hideout_Pack_East";
+		
+		_weapons = ["rhs_weap_ak74m"];
+		_attachments = [["rhs_acc_1p78"], [], []];
+	
+		_binoculars = "Rangefinder";
+		_assignedItems pushback "ItemGPS";
+		_commonOrdnance append [
+			["SmokeShellYellow", 2]
+		];
+	};
+
+	case __ICE_gear_Crewman: {
+	
+		_vest = ["V_BandollierB_khk", "V_BandollierB_cbr", "V_BandollierB_rgr", "V_BandollierB_blk", "V_BandollierB_oli"] call BIS_fnc_selectRandom;
+		
+		_magazines = [["rhs_30Rnd_762x39mm", 4]];
+		
+		_assignedItems pushback "ItemGPS";
+		_commonOrdnance append [
+			["SmokeShellYellow", 2]
+		];
+	};
+		
+	case __ICE_gear_Pilot: {
+	
+		_helmet = "rhs_zsh7a_mike";
+		_glasses = "G_Aviator";
+		_vest = ["V_BandollierB_khk", "V_BandollierB_cbr", "V_BandollierB_rgr", "V_BandollierB_blk", "V_BandollierB_oli"] call BIS_fnc_selectRandom;
+		_backpack = "B_Parachute";
+		
+		_magazines = [["rhs_30Rnd_762x39mm", 4]];
+		
+		_assignedItems pushback "ItemGPS";
+		_commonOrdnance append [
+			["SmokeShellYellow", 2]
+		];
+	};
+
+	case __ICE_gear_Diver: {
+		
+		_backpack = "TB_SuicideBomb_Pack";
+		_backpackItems = [["DemoCharge_Remote_Mag", 3]];
+	};
+	
+};
+
+//-----------------------------------------------------------------------------
+_nvGogglesForAll = [["gear", "NVGogglesForAll"], "east", 1, true] call ICE_fnc_getSetting;
+if (_nvGogglesForAll == 0) then {_nvGoggles = "";};
+//-----------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+_result = 
+[
+	_weapons,
+	_attachments, // nested array
+	_magazines, // nested array - in A3, all magazines should be in each container's items list.
+	_commonOrdnance, // combined nested/single array - in A3, all magazines should be in each container's items list.
+
+	_uniform,
+	_vest,
+	_backpack,
+
+	_uniformItems,
+	_vestItems,
+	_backpackItems,
+
+	(_assignedItems+
+		(if (_nvGoggles == "") then {[]} else {[_nvGoggles]})+
+		(if (_binoculars == "") then {[]} else {[_binoculars]})
+	),
+	_helmet,
+	_glasses
+];
+//-----------------------------------------------------------------------------
+_result
